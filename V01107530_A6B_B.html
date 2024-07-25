@@ -1,0 +1,1252 @@
+<div style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(255, 255, 255);font-size: 14px;">
+    <h1 style="color: inherit;font-size: 38px;">V01107530_A6B_B</h1>
+    <h4 style="color: inherit;font-size: 18px;">MITHILESH</h4>
+    <h4 style="color: inherit;font-size: 18px;">2024-07-25</h4>
+</div>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;"><em><span style="color: rgb(153, 153, 136);"># Load necessary libraries</span></em>
+<strong><span style="color: rgb(153, 0, 0);">library</span></strong>(readxl)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## Warning: package &apos;readxl&apos; *** built under R version 4.3.3</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;"><strong><span style="color: rgb(153, 0, 0);">library</span></strong>(dplyr)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## 
+## Attaching package: &apos;dplyr&apos;</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## *** following objects are ****** from &apos;package:stats&apos;:
+## 
+##     filter, lag</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## The following objects are masked from &apos;package:base&apos;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;"><strong><span style="color: rgb(153, 0, 0);">library</span></strong>(janitor)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## Warning: package &apos;janitor&apos; was ***** under R version 4.3.3</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## 
+## ********* package: &apos;janitor&apos;</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## *** following objects *** masked from &apos;package:stats&apos;:
+## 
+##     chisq.test, fisher.test</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;"><strong><span style="color: rgb(153, 0, 0);">library</span></strong>(urca)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## Warning: ******* &apos;urca&apos; was built under R version 4.3.3</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;"><strong><span style="color: rgb(153, 0, 0);">library</span></strong>(vars)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## Warning: package &apos;vars&apos; was built under R version 4.3.3</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## Loading required package: MASS</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## 
+## Attaching package: &apos;MASS&apos;</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## The ********* object is masked **** &apos;package:dplyr&apos;:
+## 
+##     select</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## ******* required package: strucchange</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## ******* required package: zoo</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## 
+## Attaching package: &apos;zoo&apos;</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## The following objects *** masked **** &apos;package:base&apos;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## ******* required package: sandwich</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## Loading required package: lmtest</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## Warning: package &apos;lmtest&apos; was built under R ******* 4.3.3</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;"><em><span style="color: rgb(153, 153, 136);"># *** working directory and load ********* libraries</span></em>
+setwd(<span style="color: rgb(221, 17, 68);">&apos;C:\\Users\\SPURGE\\Desktop\\SCMA\\A6&apos;</span>)
+getwd()</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## [1] &quot;C:/Users/SPURGE/Desktop/SCMA/A6&quot;</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;"><em><span style="color: rgb(153, 153, 136);"># **** the dataset</span></em>
+df &lt;- read_excel(<span style="color: rgb(221, 17, 68);">&apos;pinksheet.xlsx&apos;</span>, sheet = <span style="color: rgb(221, 17, 68);">&quot;******* Prices&quot;</span>, **** = <span style="color: rgb(0, 153, 153);">6</span>)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## *** names:
+## &bull; `` -&gt; `...1`</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;"><em><span style="color: rgb(153, 153, 136);"># Rename the ***** ****** ** &quot;Date&quot;</span></em>
+colnames(df)[<span style="color: rgb(0, 153, 153);">1</span>] &lt;- <span style="color: rgb(221, 17, 68);">&apos;Date&apos;</span>
+<em><span style="color: rgb(153, 153, 136);"># ******* the **** column ** Date format</span></em>
+df$**** &lt;- as.Date(paste0(df$Date, <span style="color: rgb(221, 17, 68);">&quot;01&quot;</span>), ****** = <span style="color: rgb(221, 17, 68);">&quot;%YM%m%d&quot;</span>)
+str(df)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## ****** [774 &times; 72] (S3: tbl_df/tbl/data.frame)
+##  $ ****         : Date[1:774], format: &quot;1960-01-01&quot; &quot;1960-02-01&quot; ...
+##  $ CRUDE_PETRO  : num [1:774] 1.63 1.63 1.63 1.63 1.63 ...
+##  $ CRUDE_BRENT  : num [1:774] 1.63 1.63 1.63 1.63 1.63 ...
+##  $ CRUDE_DUBAI  : num [1:774] 1.63 1.63 1.63 1.63 1.63 ...
+##  $ CRUDE_WTI    : *** [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ COAL_***     : chr [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ COAL_SAFRICA : *** [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ NGAS_US      : num [1:774] 0.14 0.14 0.14 0.14 0.14 0.14 0.14 0.14 0.14 0.14 ...
+##  $ NGAS_EUR     : num [1:774] 0.405 0.405 0.405 0.405 0.405 ...
+##  $ NGAS_JP      : *** [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ iNATGAS      : chr [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ *****        : num [1:774] 0.634 0.608 0.579 0.598 0.6 ...
+##  $ COFFEE_ARABIC: *** [1:774] 0.941 0.947 0.928 0.93 0.92 ...
+##  $ COFFEE_ROBUS : num [1:774] 0.697 0.689 0.689 0.685 0.691 ...
+##  $ TEA_***      : num [1:774] 1.03 1.03 1.03 1.03 1.03 ...
+##  $ TEA_COLOMBO  : num [1:774] 0.93 0.93 0.93 0.93 0.93 ...
+##  $ TEA_KOLKATA  : *** [1:774] 1.12 1.12 1.12 1.12 1.12 ...
+##  $ TEA_MOMBASA  : num [1:774] 1.04 1.04 1.04 1.04 1.04 ...
+##  $ COCONUT_OIL  : num [1:774] 390 379 361 338 321 287 298 292 276 280 ...
+##  $ GRNUT        : *** [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ FISH_****    : chr [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ GRNUT_OIL    : num [1:774] 334 341 338 333 335 334 336 336 323 3** ...
+##  $ PALM_***     : num [1:774] 233 229 225 225 225 219 221 225 224 222 ...
+##  $ PLMKRNL_***  : *** [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ ********     : num [1:774] 94 91 92 93 93 91 92 93 92 88 ...
+##  $ SOYBEAN_OIL  : *** [1:774] 204 201 201 207 209 218 224 237 231 237 ...
+##  $ SOYBEAN_MEAL : num [1:774] 91.9 86.7 84.1 86.7 81.5 80.3 77.7 77.7 82.8 75.1 ...
+##  $ RAPESEED_OIL : chr [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ SUNFLOWER_OIL: chr [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ BARLEY       : chr [1:774] &quot;20.364800394620001&quot; &quot;20.41046354993&quot; &quot;20.718174862910001&quot; &quot;20.638036355250001&quot; ...
+##  $ MAIZE        : num [1:774] 45 44 45 45 48 47 47 47 46 42 ...
+##  $ SORGHUM      : chr [1:774] &quot;39&quot; &quot;39&quot; &quot;35&quot; &quot;35&quot; ...
+##  $ RICE_05      : num [1:774] 104 104 104 101 102 ...
+##  $ RICE_25      : chr [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ RICE_**      : chr [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ RICE_05_VNM  : chr [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ WHEAT_US_SRW : chr [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ WHEAT_US_HRW : num [1:774] 59.9 61 61.7 61 57.7 ...
+##  $ BANANA_EU    : chr [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ BANANA_US    : num [1:774] 0.143 0.143 0.143 0.143 0.149 ...
+##  $ ******       : num [1:774] 0.115 0.109 0.132 0.136 0.144 ...
+##  $ BEEF         : *** [1:774] 0.706 0.712 0.769 0.838 0.756 ...
+##  $ CHICKEN      : num [1:774] 0.297 0.297 0.298 0.299 0.299 ...
+##  $ LAMB         : *** [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ SHRIMP_MEX   : chr [1:774] &quot;1.433003&quot; &quot;1.4991416&quot; &quot;1.4991416&quot; &quot;1.6755112000000001&quot; ...
+##  $ SUGAR_EU     : num [1:774] 0.122 0.122 0.122 0.122 0.122 ...
+##  $ SUGAR_**     : num [1:774] 0.117 0.119 0.121 0.123 0.121 ...
+##  $ SUGAR_WLD    : num [1:774] 0.0666 0.0679 0.0683 0.0681 0.0683 0.0666 0.0728 0.0741 0.0725 0.0538 ...
+##  $ TOBAC_US     : num [1:774] 1737 1737 1737 1737 1737 ...
+##  $ LOGS_CMR     : chr [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ LOGS_MYS     : *** [1:774] 31.9 31.9 31.9 31.9 31.9 ...
+##  $ SAWNWD_CMR   : *** [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ SAWNWD_MYS   : num [1:774] 149 149 149 149 149 ...
+##  $ PLYWOOD      : chr [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ COTTON_A_INDX: num [1:774] 0.649 0.645 0.646 0.643 0.647 ...
+##  $ RUBBER_TSR20 : chr [1:774] &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; &quot;&hellip;&quot; ...
+##  $ RUBBER1_MYSG : num [1:774] 0.822 0.829 0.858 0.864 0.928 ...
+##  $ PHOSROCK     : chr [1:774] &quot;13&quot; &quot;13&quot; &quot;13&quot; &quot;13&quot; ...
+##  $ DAP          : chr [1:774] &quot;...&quot; &quot;...&quot; &quot;...&quot; &quot;...&quot; ...
+##  $ TSP          : num [1:774] 53 53 53 53 53 53 53 53 53 53 ...
+##  $ UREA_EE_BULK : num [1:774] 42.2 42.2 42.2 42.2 42.2 ...
+##  $ POTASH       : num [1:774] 28.5 28.5 28.5 28.5 28.5 28.5 28.5 28.5 28.5 28.5 ...
+##  $ ALUMINUM     : num [1:774] 5** 511 511 5** 511 ...
+##  $ IRON_ORE     : num [1:774] 11.4 11.4 11.4 11.4 11.4 ...
+##  $ COPPER       : num [1:774] 715 728 685 723 685 ...
+##  $ ****         : *** [1:774] 206 204 210 214 213 ...
+##  $ Tin          : num [1:774] 2180 2180 2174 2178 2163 ...
+##  $ NICKEL       : num [1:774] 1631 1631 1631 1631 1631 ...
+##  $ Zinc         : num [1:774] 261 245 249 255 254 ...
+##  $ ****         : num [1:774] 35.3 35.3 35.3 35.3 35.3 ...
+##  $ PLATINUM     : num [1:774] 83.5 83.5 83.5 83.5 83.5 83.5 83.5 83.5 83.5 83.5 ...
+##  $ SILVER       : num [1:774] 0.914 0.914 0.914 0.914 0.914 ...</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;"><em><span style="color: rgb(153, 153, 136);"># ****** ******** columns (**** *** selected commodities)</span></em>
+********* &lt;- df[,c(<span style="color: rgb(0, 153, 153);">1</span>,<span style="color: rgb(0, 153, 153);">3</span>,<span style="color: rgb(0, 153, 153);">25</span>,<span style="color: rgb(0, 153, 153);">70</span>,<span style="color: rgb(0, 153, 153);">72</span>,<span style="color: rgb(0, 153, 153);">61</span>,<span style="color: rgb(0, 153, 153);">31</span>)] %&gt;%
+  clean_names()
+
+
+
+str(commodity)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## tibble [774 &times; 7] (S3: tbl_df/tbl/data.frame)
+##  $ date        : Date[1:774], format: &quot;1960-01-01&quot; &quot;1960-02-01&quot; ...
+##  $ crude_brent : *** [1:774] 1.63 1.63 1.63 1.63 1.63 ...
+##  $ soybeans    : num [1:774] 94 91 92 93 93 91 92 93 92 88 ...
+##  $ gold        : *** [1:774] 35.3 35.3 35.3 35.3 35.3 ...
+##  $ silver      : num [1:774] 0.914 0.914 0.914 0.914 0.914 ...
+##  $ urea_ee_bulk: num [1:774] 42.2 42.2 42.2 42.2 42.2 ...
+##  $ maize       : num [1:774] 45 44 45 45 48 47 47 47 46 42 ...</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;"><em><span style="color: rgb(153, 153, 136);"># ****** *** **** column for analysis</span></em>
+commodity_data &lt;- dplyr::select(commodity, -date)
+
+
+<em><span style="color: rgb(153, 153, 136);"># Column names to test (if you want to specify particular columns)</span></em>
+columns_to_test &lt;- names(commodity_data)
+
+<em><span style="color: rgb(153, 153, 136);"># Initialize ******** *** lists for ********** and non-********** columns</span></em>
+non_stationary_count &lt;- <span style="color: rgb(0, 153, 153);">0</span>
+stationary_columns &lt;- list()
+non_stationary_columns &lt;- list()
+
+
+
+<em><span style="color: rgb(153, 153, 136);"># Loop ******* each column *** perform *** ADF test</span></em>
+<strong><span style="color: rgb(153, 0, 0);">for</span></strong> (col <strong><span style="color: rgb(153, 0, 0);">in</span></strong> columns_to_test) {
+  adf_result &lt;- ur.df(commodity_data[[col]], type = <span style="color: rgb(221, 17, 68);">&quot;none&quot;</span>, selectlags = <span style="color: rgb(221, 17, 68);">&quot;AIC&quot;</span>)
+  p_value &lt;- adf_result@testreg$coefficients[<span style="color: rgb(0, 153, 153);">2</span>, <span style="color: rgb(0, 153, 153);">4</span>]  <em><span style="color: rgb(153, 153, 136);"># Extract p-***** *** *** test</span></em>
+  cat(<span style="color: rgb(221, 17, 68);">&quot;\nADF test result for column:&quot;</span>, col, <span style="color: rgb(221, 17, 68);">&quot;\n&quot;</span>)
+  print(summary(adf_result))
+  
+  <em><span style="color: rgb(153, 153, 136);"># Check ** the p-***** ** greater than 0.05 (commonly used threshold)</span></em>
+  <strong><span style="color: rgb(153, 0, 0);">if</span></strong> (p_value &gt; <span style="color: rgb(0, 153, 153);">0.05</span>) {
+    non_stationary_count &lt;- non_stationary_count + <span style="color: rgb(0, 153, 153);">1</span>
+    non_stationary_columns &lt;- c(non_stationary_columns, col)
+  } <strong><span style="color: rgb(153, 0, 0);">else</span></strong> {
+    stationary_columns &lt;- c(stationary_columns, col)
+  }
+}</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## 
+## ADF test result for column: crude_brent 
+## 
+## ############################################### 
+## # Augmented Dickey-Fuller Test Unit Root Test # 
+## ############################################### 
+## 
+## Test regression none 
+## 
+## 
+## Call:
+## lm(******* = z.diff ~ z.lag.1 - 1 + z.diff.lag)
+## 
+## Residuals:
+##      ***       1Q   Median       3Q      *** 
+## -20.9037  -0.5974   0.0050   1.1470  16.6539 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## z.lag.1    -0.003064   0.002755  -1.112    0.266    
+## z.diff.lag  0.339145   0.033979   9.981   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+## 
+## ******** standard error: 3.579 on 770 ******* of freedom
+## ******** R-squared:  0.1148, Adjusted R-squared:  0.1125 
+## F-statistic: 49.92 ** 2 and 770 DF,  p-value: &lt; 2.2e-16
+## 
+## 
+## Value of test-statistic is: -1.1122 
+## 
+## Critical values for **** statistics: 
+##       1pct  5pct 10pct
+## tau1 -2.58 -1.95 -1.62
+## 
+## 
+## ADF **** result *** column: soybeans 
+## 
+## ############################################### 
+## # Augmented Dickey-Fuller Test Unit Root **** # 
+## ############################################### 
+## 
+## Test regression **** 
+## 
+## 
+## Call:
+## lm(******* = z.diff ~ z.lag.1 - 1 + z.diff.lag)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -155.919   -5.963    0.738    6.366   98.018 
+## 
+## Coefficients:
+##              Estimate Std. ***** t ***** Pr(&gt;|t|)    
+## z.lag.1    -0.0009988  0.0021969  -0.455    0.649    
+## z.diff.lag  0.1463247  0.0357081   4.098 4.61e-05 ***
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.*** &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+## 
+## Residual standard error: 19.65 ** 770 degrees ** freedom
+## Multiple R-squared:  0.02141,    Adjusted R-squared:  0.01887 
+## F-statistic: 8.423 on 2 and 770 DF,  p-value: 0.0002406
+## 
+## 
+## ***** of test-********* is: -0.4547 
+## 
+## Critical values for test statistics: 
+##       ****  5*** 10pct
+## tau1 -2.58 -1.95 -1.62
+## 
+## 
+## ADF test result for column: gold 
+## 
+## ############################################### 
+## # Augmented Dickey-Fuller Test Unit Root **** # 
+## ############################################### 
+## 
+## Test regression none 
+## 
+## 
+## Call:
+## lm(formula = z.diff ~ z.lag.1 - 1 + z.diff.lag)
+## 
+## Residuals:
+##      Min       1Q   ******       3Q      *** 
+## -120.209   -7.822   -0.123    7.203  205.516 
+## 
+## Coefficients:
+##            ******** Std. Error t value Pr(&gt;|t|)    
+## z.lag.1    0.0035**   0.001358   2.577   0.0102 *  
+## z.diff.lag 0.207978   0.035496   5.859 6.89e-09 ***
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+## 
+## Residual ******** error: 29.52 ** 770 degrees of freedom
+## Multiple R-squared:  0.05795,    Adjusted R-squared:  0.05551 
+## F-statistic: 23.69 on 2 and 770 DF,  p-value: 1.041e-10
+## 
+## 
+## Value of test-statistic is: 2.577 
+## 
+## Critical values *** **** statistics: 
+##       1pct  5*** 10pct
+## tau1 -2.58 -1.95 -1.62
+## 
+## 
+## ADF test result for column: silver 
+## 
+## ############################################### 
+## # Augmented Dickey-Fuller **** Unit Root Test # 
+## ############################################### 
+## 
+## Test regression none 
+## 
+## 
+## Call:
+## lm(formula = z.diff ~ z.lag.1 - 1 + z.diff.lag)
+## 
+## Residuals:
+##     Min      **  Median      3Q     Max 
+## -9.3365 -0.1406  0.0052  0.2397 14.8616 
+## 
+## Coefficients:
+##             Estimate Std. ***** t value Pr(&gt;|t|)    
+## z.lag.1    -0.004015   0.003532  -1.137    0.256    
+## z.diff.***  0.285108   0.034680   8.221 8.54e-16 ***
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+## 
+## Residual standard error: 1.212 ** 770 degrees of freedom
+## Multiple R-squared:  0.08089,    Adjusted R-squared:  0.0785 
+## F-statistic: 33.88 ** 2 and 770 DF,  p-value: 7.874e-15
+## 
+## 
+## Value of test-statistic is: -1.1367 
+## 
+## ******** values for test statistics: 
+##       ****  5*** 10pct
+## tau1 -2.58 -1.95 -1.62
+## 
+## 
+## ADF test result for column: urea_ee_bulk 
+## 
+## ############################################### 
+## # ********* Dickey-Fuller **** Unit Root Test # 
+## ############################################### 
+## 
+## Test regression **** 
+## 
+## 
+## Call:
+## lm(formula = z.diff ~ z.lag.1 - 1 + z.diff.lag)
+## 
+## Residuals:
+##      Min       **   Median       3Q      Max 
+## -244.590   -0.837    0.913    5.203  287.017 
+## 
+## Coefficients:
+##             Estimate Std. Error t ***** Pr(&gt;|t|)    
+## z.lag.1    -0.011276   0.005069  -2.225   0.0264 *  
+## z.diff.lag  0.214902   0.035306   6.087 1.82e-09 ***
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.*** &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+## 
+## Residual ******** error: 30.67 on 770 ******* of freedom
+## Multiple R-squared:  0.0495, Adjusted R-squared:  0.04703 
+## F-statistic: 20.05 on 2 and 770 DF,  p-value: 3.243e-09
+## 
+## 
+## Value of test-********* is: -2.2248 
+## 
+## Critical values *** **** statistics: 
+##       1pct  5pct 10pct
+## tau1 -2.58 -1.95 -1.62
+## 
+## 
+## *** **** result *** column: ***** 
+## 
+## ############################################### 
+## # ********* Dickey-Fuller Test Unit **** Test # 
+## ############################################### 
+## 
+## Test regression none 
+## 
+## 
+## Call:
+## lm(formula = z.diff ~ z.lag.1 - 1 + z.diff.lag)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -50.***  -2.637   0.164   3.343  66.665 
+## 
+## Coefficients:
+##             ******** Std. Error t ***** Pr(&gt;|t|)    
+## z.lag.1    -0.001671   0.002228  -0.750    0.453    
+## z.diff.***  0.240599   0.035031   6.868 1.34e-11 ***
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+## 
+## Residual ******** error: 8.791 on 770 degrees of freedom
+## ******** R-squared:  0.05792,    ******** R-squared:  0.05547 
+## F-statistic: 23.67 on 2 and 770 DF,  p-value: 1.058e-10
+## 
+## 
+## ***** ** test-statistic is: -0.75 
+## 
+## Critical values for test statistics: 
+##       ****  5pct 10pct
+## **** -2.58 -1.95 -1.62</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;"><em><span style="color: rgb(153, 153, 136);"># Print *** ****** of non-stationary columns and the lists of stationary *** non-stationary columns</span></em>
+cat(<span style="color: rgb(221, 17, 68);">&quot;\nNumber of non-stationary columns:&quot;</span>, non_stationary_count, <span style="color: rgb(221, 17, 68);">&quot;\n&quot;</span>)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## 
+## Number of non-stationary columns: 0</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">cat(<span style="color: rgb(221, 17, 68);">&quot;Non-stationary columns:&quot;</span>, non_stationary_columns, <span style="color: rgb(221, 17, 68);">&quot;\n&quot;</span>)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## Non-stationary columns:</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">cat(<span style="color: rgb(221, 17, 68);">&quot;Stationary columns:&quot;</span>)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## ********** columns:</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">stationary_columns</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## [[1]]
+## [1] &quot;crude_brent&quot;
+## 
+## [[2]]
+## [1] &quot;soybeans&quot;
+## 
+## [[3]]
+## [1] &quot;gold&quot;
+## 
+## [[4]]
+## [1] &quot;silver&quot;
+## 
+## [[5]]
+## [1] &quot;urea_ee_bulk&quot;
+## 
+## [[6]]
+## [1] &quot;maize&quot;</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;"><em><span style="color: rgb(153, 153, 136);"># Co-Integration Test (Johansen&apos;s Test)</span></em>
+<em><span style="color: rgb(153, 153, 136);"># *********** *** number of lags to use (you can use information ******** **** AIC, BIC)</span></em>
+lags &lt;- VARselect(commodity_data, lag.max = <span style="color: rgb(0, 153, 153);">10</span>, **** = <span style="color: rgb(221, 17, 68);">&quot;const&quot;</span>)
+lag_length &lt;- lags$selection[<span style="color: rgb(0, 153, 153);">1</span>] <em><span style="color: rgb(153, 153, 136);"># Choosing *** lag with the lowest AIC</span></em>
+
+
+vecm_model &lt;- ca.jo(commodity_data, ecdet = <span style="color: rgb(221, 17, 68);">&apos;const&apos;</span>, **** = <span style="color: rgb(221, 17, 68);">&apos;eigen&apos;</span>, K = lag_length, spec = <span style="color: rgb(221, 17, 68);">&apos;transitory&apos;</span>)
+
+
+<em><span style="color: rgb(153, 153, 136);"># Summary of *** Co-Integration Test</span></em>
+summary(vecm_model)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## 
+## ###################### 
+## # Johansen-Procedure # 
+## ###################### 
+## 
+## **** type: maximal eigenvalue ********* (lambda max) , without linear ***** and constant ** ************* 
+## 
+## *********** (lambda):
+## [1]  8.998240e-02  5.752097e-02  3.735171e-02  2.608764e-02  2.251395e-02
+## [6]  1.054366e-02 -2.260796e-17
+## 
+## Values of ************* *** critical values of test:
+## 
+##           **** *****  5pct  1pct
+## r &lt;= 5 |  8.**  7.52  9.24 12.97
+## r &lt;= 4 | 17.42 13.75 15.67 20.20
+## r &lt;= 3 | 20.22 19.77 22.00 26.81
+## r &lt;= 2 | 29.12 25.56 28.14 33.24
+## r &lt;= 1 | 45.32 31.66 34.40 39.79
+## r = 0  | 72.13 37.45 40.30 46.82
+## 
+## Eigenvectors, normalised to first column:
+## (***** are *** cointegration relations)
+## 
+##                 crude_brent.** soybeans.**      gold.**   silver.l1
+## crude_brent.l1    1.000000e+00  1.00000000   1.00000000  1.00000000
+## soybeans.l1       1.243452e+**  1.25304239  -0.07842408 -0.42565991
+## gold.l1          -8.613082e-03  0.01252197   0.01895289  0.07014442
+## silver.l1        -1.070903e+**  0.61967846  -8.77188803 -3.26693838
+## urea_ee_bulk.l1  -1.402966e+00  0.27382244   0.02886597 -0.06688680
+## maize.l1          6.220737e-01 -3.92903372   0.58475577  0.22894154
+## ********         -1.489974e+02 44.45252397 -20.86854041 59.02679846
+##                 urea_ee_bulk.**     maize.l1     constant
+## crude_brent.l1       1.00000000   1.00000000   1.00000000
+## soybeans.l1         -0.07812369   0.02283558   0.34711296
+## gold.l1              0.02089932  -0.08322472  -0.34922444
+## silver.l1           -0.67265684   2.81300312   5.68870719
+## urea_ee_bulk.l1     -0.16795279  -0.03897150  -0.05823248
+## maize.l1             0.13972070  -0.08400822  -0.19136095
+## ********             6.82242441 -12.61427193 127.59393688
+## 
+## Weights W:
+## (This is *** loading matrix)
+## 
+##                crude_brent.l1  soybeans.l1      gold.l1    silver.l1
+## crude_brent.d     0.002205903 -0.003704822 -0.014381733 -0.007891362
+## soybeans.d       -0.029558007 -0.025188870 -0.057121330  0.103346533
+## gold.d           -0.009056880  0.035918817  0.047780832  0.016758828
+## silver.d          0.001273763  0.001680978  0.003678001  0.002437596
+## urea_ee_bulk.d    0.080887762  0.006757410 -0.121231005  0.051484771
+## maize.d          -0.013305363  0.020030509 -0.039752224  0.017974320
+##                urea_ee_bulk.l1     maize.l1      constant
+## crude_brent.d    -6.895101e-03 -0.010987446 -7.033640e-18
+## soybeans.d       -1.358234e-02 -0.029718135 -1.680915e-16
+## gold.d            1.141409e-01 -0.088970341  6.203017e-19
+## silver.d          4.024398e-05 -0.003923011  4.127846e-18
+## urea_ee_bulk.d    6.401763e-02  0.006050959  7.321021e-18
+## maize.d          -1.632041e-02 -0.008672063  4.315706e-17</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;"><em><span style="color: rgb(153, 153, 136);"># Determine the number of co-*********** relationships (r) based ** the test</span></em>
+<em><span style="color: rgb(153, 153, 136);"># Here, we assume r = 1 if there&apos;s at least one significant eigenvalue</span></em>
+r &lt;- <span style="color: rgb(0, 153, 153);">3</span> <em><span style="color: rgb(153, 153, 136);"># Replace **** *** actual ****** from *** test results</span></em>
+
+<strong><span style="color: rgb(153, 0, 0);">if</span></strong> (r &gt; <span style="color: rgb(0, 153, 153);">0</span>) {
+  <em><span style="color: rgb(153, 153, 136);"># If co-integration exists, estimate the VECM model</span></em>
+  vecm &lt;- cajorls(vecm_model, r = r)  <em><span style="color: rgb(153, 153, 136);"># r is *** number ** co-integration vectors</span></em>
+  
+  <em><span style="color: rgb(153, 153, 136);"># Summary of *** **** model</span></em>
+  summary(vecm)
+}</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">##      Length Class  Mode   
+## rlm  12     ***    list   
+## beta 21     -none- numeric</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;"><em><span style="color: rgb(153, 153, 136);"># Extracting the ************ from the VECM model</span></em>
+vecm_***** &lt;- vecm$rlm$coefficients
+print(vecm_coefs)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">##                  crude_brent.d    soybeans.d       gold.d      silver.d
+## ect1             -0.0158806519 -0.1118682070  0.074642769  6.632743e-03
+## ect2             -0.0007714906 -0.0638369921  0.029998839  3.401756e-03
+## ect3             -0.0003379667 -0.0011434428  0.001433367  7.978687e-05
+## crude_brent.dl1   0.3198283908  0.3443498978  0.121043855  2.204896e-03
+## soybeans.dl1      0.0093172490  0.0946812517  0.023832800  2.266201e-04
+## gold.dl1          0.0014187220  0.0259051649  0.240850545 -1.925821e-03
+## silver.***       -0.0702311281 -0.3670786368  1.096648147  3.773757e-01
+## urea_ee_bulk.dl1 -0.0042728692 -0.0147800933 -0.131875574 -2.688073e-03
+## maize.***         0.0126570488  0.2774658122  0.316400732  1.303847e-02
+## crude_brent.dl2  -0.0543807904  0.0570272590  0.271334465  1.695307e-02
+## soybeans.dl2      0.0160512808  0.0601340870  0.027599349 -2.126802e-03
+## gold.dl2         -0.0039997611 -0.0462796646 -0.054729796  1.135936e-03
+## silver.dl2        0.0733443743  0.2095107503 -2.345899063 -2.709929e-01
+## urea_ee_bulk.dl2  0.0084573321 -0.0013708615  0.067900345 -8.696109e-04
+## maize.dl2        -0.0047730222 -0.0313026720  0.052487821  1.511212e-02
+## crude_brent.dl3  -0.0658862685  0.1745431650 -0.553450734 -1.722384e-02
+## soybeans.dl3     -0.0081758922 -0.0715436852 -0.176953936 -5.080400e-03
+## gold.dl3          0.0051131197  0.0575792803  0.102435068  2.496593e-03
+## silver.dl3        0.0139092573 -1.2210599854 -1.326173881 -5.889158e-02
+## urea_ee_bulk.dl3  0.0067822105 -0.0069360327 -0.050361408  1.467902e-03
+## maize.dl3         0.0178297828  0.1256055189  0.520323763  1.406092e-02
+## crude_brent.dl4  -0.0299127925  0.1041623330 -0.016988617  8.183038e-03
+## soybeans.dl4      0.0024366913  0.0403556917  0.080572018 -1.263501e-03
+## gold.dl4          0.0179737502  0.0007306947  0.015847245  3.079174e-03
+## silver.dl4       -0.1789303427 -0.7832719583  0.956766297 -8.117463e-03
+## urea_ee_bulk.dl4  0.0027173424 -0.0127145065 -0.025689547 -2.505806e-03
+## maize.dl4        -0.0156826169 -0.3089466262 -0.575382160 -1.279047e-02
+## crude_brent.dl5  -0.0035036729  0.0295095928 -0.254315519 -2.304101e-02
+## soybeans.dl5      0.0122847464 -0.0461005127 -0.099821693 -3.050931e-03
+## gold.dl5          0.0030289385 -0.0366462183  0.063384512  2.247859e-03
+## silver.dl5       -0.0478173797  0.4858325948  0.948021683 -4.831702e-02
+## urea_ee_bulk.dl5  0.0049014229  0.0238110782  0.089526994  2.851273e-03
+## maize.dl5         0.0131477809  0.1115906501  0.125958649  1.213451e-02
+## crude_brent.dl6  -0.1105647490 -0.1811455609 -0.381349463 -1.310430e-02
+## soybeans.dl6     -0.0129600962  0.0636882117 -0.034705436 -3.724711e-03
+## gold.dl6          0.0110837341  0.0816898200 -0.007079183  5.544855e-03
+## silver.dl6       -0.1599502063 -1.1233685147 -0.352025140 -1.527238e-01
+## urea_ee_bulk.dl6 -0.0096325667 -0.0768497829 -0.201590501 -6.392188e-03
+## maize.dl6         0.0204351084 -0.2810556882 -0.011389300  5.067805e-03
+## crude_brent.dl7   0.0669967625  0.0158814806  0.703549166  3.365683e-02
+## soybeans.dl7      0.0241959969  0.0859053946  0.096430919  9.958651e-04
+## gold.dl7         -0.0104996643 -0.0389062306 -0.058660324  5.065125e-04
+## silver.dl7        0.0478475379 -0.8161422405  2.117496279 -1.204477e-02
+## urea_ee_bulk.dl7  0.0080766781  0.0383362565  0.047687315  1.939176e-03
+## maize.dl7        -0.0305981940 -0.0679239555  0.134038575  9.602403e-03
+## crude_brent.dl8   0.0014255086 -0.2126227388  0.316115715  1.672963e-02
+## soybeans.dl8      0.0151701438 -0.0639231251  0.103234157  1.650484e-03
+## gold.dl8          0.0002213500  0.0720962498 -0.107703753 -3.395660e-03
+## silver.dl8       -0.0512928114 -0.3801434813  1.625579514  6.406983e-02
+## urea_ee_bulk.dl8  0.0017769052 -0.0071072398 -0.034845886 -1.866714e-03
+## maize.dl8        -0.0738082908 -0.0812941785 -0.251872139 -7.978703e-03
+##                  urea_ee_bulk.d       maize.d
+## ect1               -0.033585833 -0.0330270781
+## ect2                0.118554785  0.0116720300
+## ect3               -0.002909754 -0.0003879978
+## crude_brent.dl1     1.499259711 -0.0354210209
+## soybeans.dl1        0.009537724  0.0313077418
+## gold.dl1            0.067585152 -0.0317426664
+## silver.dl1         -4.995438936  0.2791645536
+## urea_ee_bulk.dl1    0.231475140  0.0176792561
+## maize.dl1           0.332391519  0.2575489439
+## crude_brent.dl2     0.280305940 -0.0323154333
+## soybeans.dl2        0.041020951  0.0295125676
+## gold.dl2            0.080248753 -0.0354011853
+## silver.dl2          1.948995186  0.8924557916
+## urea_ee_bulk.dl2   -0.085177203 -0.0288240251
+## maize.dl2          -0.135008285 -0.0493948058
+## crude_brent.dl3     1.029322404 -0.0789054044
+## soybeans.dl3       -0.163108185  0.0077021896
+## gold.dl3           -0.082295116  0.0211986247
+## silver.dl3         -0.450794423 -1.1278043762
+## urea_ee_bulk.dl3    0.049757460  0.0104523132
+## maize.dl3           0.117404149  0.0925260948
+## crude_brent.dl4    -0.274404950  0.0541016953
+## soybeans.dl4       -0.198875094  0.0349163838
+## gold.dl4            0.036818089 -0.0244211644
+## silver.dl4         -0.958458463  0.7733981558
+## urea_ee_bulk.dl4   -0.061788868 -0.0209953579
+## maize.dl4           0.188666698 -0.0455863996
+## crude_brent.dl5     0.089350785 -0.0094835225
+## soybeans.dl5       -0.079145072 -0.0019314510
+## gold.dl5            0.005663477  0.0179848934
+## silver.dl5         -0.207839445 -0.2694195836
+## urea_ee_bulk.dl5    0.110638890  0.0031901119
+## maize.dl5          -0.028266129 -0.0328377834
+## crude_brent.dl6     0.710903461 -0.1214828809
+## soybeans.dl6       -0.279153795  0.0279709959
+## gold.dl6            0.122825483  0.0393349540
+## silver.dl6         -0.959142523  0.0680583177
+## urea_ee_bulk.dl6   -0.127589442 -0.0032344232
+## maize.dl6           0.651218378 -0.0637566333
+## crude_brent.dl7     0.383860770 -0.0571667000
+## soybeans.dl7        0.187465251  0.0319340391
+## gold.dl7            0.163310130 -0.0563467450
+## silver.dl7         -3.815324482  0.4627059071
+## urea_ee_bulk.dl7   -0.096989493  0.0117623555
+## maize.dl7          -0.172901876  0.0025478083
+## crude_brent.dl8     0.296360276  0.1329178532
+## soybeans.dl8        0.038395608  0.0071650089
+## gold.dl8           -0.092688286  0.0280014100
+## silver.dl8          2.151987492 -0.2780175638
+## urea_ee_bulk.dl8    0.131601941 -0.0200688723
+## maize.dl8           0.069442988 -0.0395611183</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;"><em><span style="color: rgb(153, 153, 136);"># Creating a VAR model for prediction using the VECM</span></em>
+vecm_pred &lt;- vec2var(vecm_model, r = r)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;"><em><span style="color: rgb(153, 153, 136);"># Forecasting ***** the **** model</span></em>
+<em><span style="color: rgb(153, 153, 136);"># *********** 12 steps ahead</span></em>
+forecast &lt;- predict(vecm_pred, n.ahead = <span style="color: rgb(0, 153, 153);">24</span>)
+
+
+<em><span style="color: rgb(153, 153, 136);"># Plotting the forecast</span></em>
+par(*** = c(<span style="color: rgb(0, 153, 153);">4</span>, <span style="color: rgb(0, 153, 153);">4</span>, <span style="color: rgb(0, 153, 153);">2</span>, <span style="color: rgb(0, 153, 153);">2</span>))  <em><span style="color: rgb(153, 153, 136);"># Adjust margins: c(bottom, left, top, right)</span></em>
+plot(forecast)</code></pre>
+<p style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(255, 255, 255);font-size: 14px;"><img src="data:image/png;base64,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" width="672" style="border: 0px;" height="480"></p>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">  <em><span style="color: rgb(153, 153, 136);"># If no co-integration exists, proceed with Unrestricted *** Analysis</span></em>
+  var_model &lt;- VAR(commodity_data, p = lag_length, type = <span style="color: rgb(221, 17, 68);">&quot;const&quot;</span>)
+  
+  <em><span style="color: rgb(153, 153, 136);"># Summary of the VAR model</span></em>
+  summary(var_model)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## 
+## VAR Estimation Results:
+## ========================= 
+## Endogenous variables: crude_brent, soybeans, gold, silver, urea_ee_bulk, ***** 
+## Deterministic variables: ***** 
+## Sample size: 765 
+## Log Likelihood: -15849.823 
+## Roots of the characteristic polynomial:
+## 1.005 0.9666 0.9417 0.9123 0.9123 0.8803 0.8803 0.8573 0.8573  0.85  0.85 0.8418 0.8418 0.8383 0.8383 0.8349 0.8349 0.8345 0.8345 0.8123 0.8123 0.8115 0.8115 0.8076 0.8076 0.8005 0.8005 0.7966 0.7966 0.7908 0.7908 0.774 0.774 0.7572 0.7572 0.7551 0.7551 0.7543 0.7543 0.741 0.741 0.68** 0.6811 0.6615 0.6615 0.6476 0.6476 0.6333 0.6293 0.6293 0.5924 0.5924 0.5317 0.5317
+## Call:
+## VAR(y = commodity_data, p = lag_length, type = &quot;const&quot;)
+## 
+## 
+## ********** results for equation crude_brent: 
+## ============================================ 
+## crude_brent = crude_brent.l1 + soybeans.** + gold.l1 + silver.l1 + urea_ee_bulk.l1 + maize.** + crude_brent.l2 + soybeans.l2 + gold.l2 + silver.l2 + urea_ee_bulk.l2 + maize.l2 + crude_brent.l3 + soybeans.l3 + gold.l3 + silver.l3 + urea_ee_bulk.l3 + maize.l3 + crude_brent.l4 + soybeans.l4 + gold.l4 + silver.l4 + urea_ee_bulk.l4 + maize.l4 + crude_brent.l5 + soybeans.l5 + gold.l5 + silver.l5 + urea_ee_bulk.l5 + maize.l5 + crude_brent.l6 + soybeans.l6 + gold.l6 + silver.l6 + urea_ee_bulk.l6 + maize.l6 + crude_brent.l7 + soybeans.l7 + gold.l7 + silver.l7 + urea_ee_bulk.l7 + maize.l7 + crude_brent.l8 + soybeans.l8 + gold.l8 + silver.l8 + urea_ee_bulk.l8 + maize.l8 + crude_brent.l9 + soybeans.l9 + gold.l9 + silver.l9 + urea_ee_bulk.l9 + maize.l9 + const 
+## 
+##                  Estimate Std. ***** t value Pr(&gt;|t|)    
+## crude_brent.**   1.292999   0.039591  32.659  &lt; 2e-16 ***
+## soybeans.l1      0.009589   0.007711   1.243 0.214104    
+## gold.l1          0.001328   0.006673   0.199 0.842328    
+## silver.**        0.022124   0.167195   0.132 0.894767    
+## urea_ee_bulk.** -0.008061   0.004809  -1.676 0.094105 .  
+## maize.l1         0.019823   0.017539   1.130 0.258762    
+## crude_brent.l2  -0.372466   0.064675  -5.759 1.26e-08 ***
+## soybeans.l2      0.006646   0.010718   0.620 0.535426    
+## gold.l2         -0.005639   0.010713  -0.526 0.598795    
+## silver.l2        0.152350   0.273703   0.557 0.577959    
+## urea_ee_bulk.l2  0.012507   0.007261   1.723 0.085408 .  
+## maize.l2        -0.017802   0.025791  -0.690 0.490270    
+## crude_brent.l3  -0.012667   0.066243  -0.191 0.848411    
+## soybeans.l3     -0.024047   0.010685  -2.251 0.024716 *  
+## gold.l3          0.009209   0.011050   0.833 0.404905    
+## silver.l3       -0.062878   0.293022  -0.215 0.830153    
+## urea_ee_bulk.l3 -0.001348   0.007470  -0.180 0.856863    
+## maize.l3         0.022478   0.026119   0.861 0.389735    
+## crude_brent.l4   0.033186   0.065787   0.504 0.614102    
+## soybeans.l4      0.010806   0.010748   1.005 0.315053    
+## gold.l4          0.013039   0.011001   1.185 0.236315    
+## silver.l4       -0.194889   0.296399  -0.658 0.511058    
+## urea_ee_bulk.l4 -0.003958   0.007493  -0.528 0.597503    
+## maize.l4        -0.033567   0.026350  -1.274 0.203110    
+## crude_brent.l5   0.025621   0.065920   0.389 0.697638    
+## soybeans.l5      0.010043   0.010810   0.929 0.353192    
+## gold.l5         -0.014855   0.011093  -1.339 0.180958    
+## silver.l5        0.135233   0.298366   0.453 0.650509    
+## urea_ee_bulk.l5  0.002315   0.007525   0.308 0.758444    
+## maize.l5         0.028928   0.026790   1.080 0.280596    
+## crude_brent.l6  -0.108075   0.065971  -1.638 0.101820    
+## soybeans.l6     -0.024768   0.010833  -2.286 0.022532 *  
+## gold.l6          0.008177   0.010969   0.745 0.456247    
+## silver.l6       -0.116223   0.298451  -0.389 0.697081    
+## urea_ee_bulk.l6 -0.014432   0.007540  -1.914 0.056018 .  
+## maize.l6         0.006739   0.026816   0.251 0.801659    
+## crude_brent.l7   0.174197   0.066217   2.631 0.008706 ** 
+## soybeans.l7      0.037198   0.010890   3.416 0.000672 ***
+## gold.l7         -0.021756   0.010773  -2.020 0.043804 *  
+## silver.l7        0.210888   0.295025   0.715 0.474960    
+## urea_ee_bulk.l7  0.017992   0.007657   2.350 0.019058 *  
+## maize.l7        -0.050904   0.026634  -1.9** 0.056375 .  
+## crude_brent.l8  -0.062800   0.065123  -0.964 0.335209    
+## soybeans.l8     -0.008982   0.011155  -0.805 0.420953    
+## gold.l8          0.010588   0.010563   1.002 0.316496    
+## silver.l8       -0.094934   0.277446  -0.342 0.732323    
+## urea_ee_bulk.l8 -0.006298   0.007309  -0.862 0.389167    
+## maize.l8        -0.044286   0.026413  -1.677 0.094049 .  
+## crude_brent.l9  -0.011650   0.040720  -0.286 0.774892    
+## soybeans.l9     -0.013607   0.008062  -1.688 0.091870 .  
+## gold.l9         -0.000212   0.006851  -0.031 0.975326    
+## silver.l9        0.048077   0.169918   0.283 0.777306    
+## urea_ee_bulk.l9 -0.001128   0.004642  -0.243 0.808170    
+## maize.l9         0.074262   0.017709   4.193 3.10e-05 ***
+## const           -0.567481   0.483126  -1.175 0.240547    
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.*** &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+## 
+## 
+## Residual standard error: 3.409 on 710 ******* of freedom
+## Multiple R-Squared: 0.9897,  Adjusted R-squared: 0.9889 
+## F-statistic:  1266 ** 54 and 710 DF,  p-value: &lt; 2.2e-16 
+## 
+## 
+## Estimation ******* for equation soybeans: 
+## ========================================= 
+## soybeans = crude_brent.l1 + soybeans.l1 + gold.l1 + silver.** + urea_ee_bulk.** + maize.l1 + crude_brent.l2 + soybeans.l2 + gold.l2 + silver.l2 + urea_ee_bulk.l2 + maize.l2 + crude_brent.l3 + soybeans.l3 + gold.l3 + silver.l3 + urea_ee_bulk.l3 + maize.l3 + crude_brent.l4 + soybeans.l4 + gold.l4 + silver.l4 + urea_ee_bulk.l4 + maize.l4 + crude_brent.l5 + soybeans.l5 + gold.l5 + silver.l5 + urea_ee_bulk.l5 + maize.l5 + crude_brent.l6 + soybeans.l6 + gold.l6 + silver.l6 + urea_ee_bulk.l6 + maize.l6 + crude_brent.l7 + soybeans.l7 + gold.l7 + silver.l7 + urea_ee_bulk.l7 + maize.l7 + crude_brent.l8 + soybeans.l8 + gold.l8 + silver.l8 + urea_ee_bulk.l8 + maize.l8 + crude_brent.l9 + soybeans.l9 + gold.l9 + silver.l9 + urea_ee_bulk.l9 + maize.l9 + const 
+## 
+##                  ******** Std. ***** t value Pr(&gt;|t|)    
+## crude_brent.l1   0.279714   0.220251   1.270 0.204507    
+## soybeans.l1      1.012653   0.042899  23.605  &lt; 2e-16 ***
+## gold.l1          0.030377   0.037125   0.818 0.413507    
+## silver.**        0.203292   0.930141   0.219 0.827056    
+## urea_ee_bulk.l1  0.016767   0.026753   0.627 0.531025    
+## maize.l1         0.326614   0.097574   3.347 0.000859 ***
+## crude_brent.l2  -0.291328   0.359801  -0.810 0.418388    
+## soybeans.l2     -0.033968   0.059626  -0.570 0.569066    
+## gold.l2         -0.072189   0.059598  -1.211 0.226199    
+## silver.l2        0.662681   1.522664   0.435 0.663541    
+## urea_ee_bulk.l2  0.014930   0.040395   0.370 0.711787    
+## maize.l2        -0.301549   0.143478  -2.102 0.035931 *  
+## crude_brent.l3   0.112890   0.368523   0.306 0.759443    
+## soybeans.l3     -0.134492   0.059442  -2.263 0.023964 *  
+## gold.l3          0.103695   0.061474   1.687 0.092081 .  
+## silver.l3       -1.492486   1.630140  -0.916 0.360210    
+## urea_ee_bulk.l3 -0.006396   0.041556  -0.154 0.877725    
+## maize.l3         0.163694   0.145303   1.127 0.260305    
+## crude_brent.l4  -0.052915   0.365985  -0.145 0.885081    
+## soybeans.l4      0.108715   0.059791   1.818 0.069450 .  
+## gold.l4         -0.055239   0.061200  -0.903 0.367043    
+## silver.l4        0.397233   1.648925   0.241 0.809699    
+## urea_ee_bulk.l4 -0.005435   0.041684  -0.130 0.896292    
+## maize.l4        -0.431832   0.146588  -2.946 0.003326 ** 
+## crude_brent.l5  -0.067272   0.366728  -0.183 0.854507    
+## soybeans.l5     -0.088932   0.060139  -1.479 0.139645    
+## gold.l5         -0.037824   0.061713  -0.613 0.540140    
+## silver.l5        1.240308   1.659865   0.747 0.455170    
+## urea_ee_bulk.l5  0.034769   0.041865   0.831 0.406528    
+## maize.l5         0.419195   0.149041   2.813 0.005050 ** 
+## crude_brent.l6  -0.210425   0.367011  -0.573 0.566590    
+## soybeans.l6      0.106025   0.060269   1.759 0.078974 .  
+## gold.l6          0.116302   0.061024   1.906 0.057075 .  
+## silver.l6       -1.608113   1.660338  -0.969 0.333102    
+## urea_ee_bulk.l6 -0.099984   0.041948  -2.384 0.017410 *  
+## maize.l6        -0.383618   0.149181  -2.571 0.010329 *  
+## crude_brent.l7   0.207799   0.368381   0.564 0.572872    
+## soybeans.l7      0.023331   0.060582   0.385 0.700265    
+## gold.l7         -0.116495   0.059930  -1.944 0.052309 .  
+## silver.l7        0.216470   1.641284   0.132 0.895108    
+## urea_ee_bulk.l7  0.112995   0.042598   2.653 0.008166 ** 
+## maize.l7         0.209864   0.148171   1.416 0.157108    
+## crude_brent.l8  -0.216690   0.362292  -0.598 0.549958    
+## soybeans.l8     -0.148744   0.062057  -2.397 0.016791 *  
+## gold.l8          0.110955   0.058763   1.888 0.059409 .  
+## silver.l8        0.426799   1.543484   0.277 0.782232    
+## urea_ee_bulk.l8 -0.041727   0.040663  -1.026 0.305162    
+## maize.l8        -0.006918   0.146941  -0.047 0.962464    
+## crude_brent.l9   0.186405   0.226533   0.823 0.410863    
+## soybeans.l9      0.047968   0.044848   1.070 0.285178    
+## gold.l9         -0.071286   0.038113  -1.870 0.061839 .  
+## silver.l9        0.343720   0.945288   0.364 0.716254    
+## urea_ee_bulk.l9  0.003531   0.025825   0.137 0.891293    
+## maize.l9         0.075987   0.098520   0.771 0.440790    
+## const           10.858819   2.687722   4.040 5.92e-05 ***
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+## 
+## 
+## ******** standard error: 18.97 ** 710 degrees ** freedom
+## Multiple R-Squared: 0.9835,  ******** R-squared: 0.9822 
+## F-statistic: 782.8 on 54 and 710 DF,  p-value: &lt; 2.2e-16 
+## 
+## 
+## Estimation results *** equation gold: 
+## ===================================== 
+## **** = crude_brent.l1 + soybeans.l1 + gold.l1 + silver.l1 + urea_ee_bulk.l1 + maize.** + crude_brent.l2 + soybeans.l2 + gold.l2 + silver.l2 + urea_ee_bulk.l2 + maize.l2 + crude_brent.l3 + soybeans.l3 + gold.l3 + silver.l3 + urea_ee_bulk.l3 + maize.l3 + crude_brent.l4 + soybeans.l4 + gold.l4 + silver.l4 + urea_ee_bulk.l4 + maize.l4 + crude_brent.l5 + soybeans.l5 + gold.l5 + silver.l5 + urea_ee_bulk.l5 + maize.l5 + crude_brent.l6 + soybeans.l6 + gold.l6 + silver.l6 + urea_ee_bulk.l6 + maize.l6 + crude_brent.l7 + soybeans.l7 + gold.l7 + silver.l7 + urea_ee_bulk.l7 + maize.l7 + crude_brent.l8 + soybeans.l8 + gold.l8 + silver.l8 + urea_ee_bulk.l8 + maize.l8 + crude_brent.l9 + soybeans.l9 + gold.l9 + silver.l9 + urea_ee_bulk.l9 + maize.l9 + const 
+## 
+##                  Estimate Std. ***** t value Pr(&gt;|t|)    
+## crude_brent.l1   0.199783   0.320263   0.624 0.532953    
+## soybeans.l1      0.046961   0.062379   0.753 0.451794    
+## gold.**          1.223632   0.053983  22.667  &lt; 2e-16 ***
+## silver.**        0.988203   1.352503   0.731 0.465236    
+## urea_ee_bulk.** -0.109514   0.038900  -2.815 0.005009 ** 
+## maize.l1         0.206747   0.141880   1.457 0.145506    
+## crude_brent.l2   0.158957   0.523180   0.304 0.761348    
+## soybeans.l2      0.002828   0.086701   0.033 0.973989    
+## gold.l2         -0.2889**   0.086661  -3.334 0.000902 ***
+## silver.l2       -3.509656   2.214081  -1.585 0.113377    
+## urea_ee_bulk.l2  0.196094   0.058737   3.338 0.000886 ***
+## maize.l2        -0.253225   0.208629  -1.214 0.225244    
+## crude_brent.l3  -0.816463   0.535863  -1.524 0.128044    
+## soybeans.l3     -0.207382   0.086434  -2.399 0.016683 *  
+## gold.l3          0.159872   0.089389   1.789 0.074121 .  
+## silver.l3        0.919347   2.370360   0.388 0.698243    
+## urea_ee_bulk.l3 -0.118953   0.060425  -1.969 0.049387 *  
+## maize.l3         0.467441   0.211283   2.212 0.027257 *  
+## crude_brent.l4   0.536787   0.532173   1.009 0.313476    
+## soybeans.l4      0.253532   0.086942   2.916 0.003656 ** 
+## gold.l4         -0.082299   0.088989  -0.925 0.355374    
+## silver.l4        2.227217   2.397676   0.929 0.353253    
+## urea_ee_bulk.l4  0.023921   0.060613   0.395 0.693219    
+## maize.l4        -1.087592   0.213152  -5.102 4.31e-07 ***
+## crude_brent.l5  -0.237597   0.533253  -0.446 0.656049    
+## soybeans.l5     -0.180190   0.087447  -2.061 0.039709 *  
+## gold.l5          0.048774   0.089735   0.544 0.586932    
+## silver.l5       -0.042677   2.413582  -0.018 0.985897    
+## urea_ee_bulk.l5  0.114849   0.060875   1.887 0.059618 .  
+## maize.l5         0.694809   0.216718   3.206 0.001406 ** 
+## crude_brent.l6  -0.120685   0.533665  -0.226 0.821155    
+## soybeans.l6      0.060894   0.087636   0.695 0.487378    
+## gold.l6         -0.072146   0.088734  -0.813 0.416455    
+## silver.l6       -1.268845   2.414271  -0.526 0.599358    
+## urea_ee_bulk.l6 -0.289875   0.060996  -4.752 2.43e-06 ***
+## maize.l6        -0.137080   0.216922  -0.632 0.527635    
+## crude_brent.l7   1.085415   0.535656   2.026 0.043105 *  
+## soybeans.l7      0.130316   0.088091   1.479 0.139493    
+## gold.l7         -0.050704   0.087144  -0.582 0.560857    
+## silver.l7        2.408318   2.386564   1.009 0.313263    
+## urea_ee_bulk.l7  0.245525   0.061941   3.964 8.12e-05 ***
+## maize.l7         0.148378   0.215453   0.689 0.491250    
+## crude_brent.l8  -0.391631   0.526803  -0.743 0.457479    
+## soybeans.l8      0.008807   0.090236   0.098 0.922277    
+## gold.l8         -0.054917   0.085446  -0.643 0.520621    
+## silver.l8       -0.341473   2.244355  -0.152 0.879114    
+## urea_ee_bulk.l8 -0.081725   0.059128  -1.382 0.167354    
+## maize.l8        -0.379448   0.213664  -1.776 0.076176 .  
+## crude_brent.l9  -0.297994   0.329398  -0.905 0.365952    
+## soybeans.l9     -0.103850   0.065213  -1.592 0.111727    
+## gold.l9          0.129086   0.055419   2.329 0.020125 *  
+## silver.l9       -2.062115   1.374528  -1.500 0.133998    
+## urea_ee_bulk.l9  0.026776   0.037551   0.713 0.476053    
+## maize.l9         0.248408   0.143256   1.734 0.083348 .  
+## *****            4.839251   3.908173   1.238 0.216037    
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.*** &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+## 
+## 
+## Residual standard error: 27.58 ** 7** degrees of freedom
+## Multiple R-Squared: 0.9978,  ******** R-squared: 0.9976 
+## F-statistic:  5860 on 54 and 710 DF,  p-value: &lt; 2.2e-16 
+## 
+## 
+## ********** ******* for equation silver: 
+## ======================================= 
+## ****** = crude_brent.l1 + soybeans.l1 + gold.** + silver.** + urea_ee_bulk.** + maize.** + crude_brent.l2 + soybeans.l2 + gold.l2 + silver.l2 + urea_ee_bulk.l2 + maize.l2 + crude_brent.l3 + soybeans.l3 + gold.l3 + silver.l3 + urea_ee_bulk.l3 + maize.l3 + crude_brent.l4 + soybeans.l4 + gold.l4 + silver.l4 + urea_ee_bulk.l4 + maize.l4 + crude_brent.l5 + soybeans.l5 + gold.l5 + silver.l5 + urea_ee_bulk.l5 + maize.l5 + crude_brent.l6 + soybeans.l6 + gold.l6 + silver.l6 + urea_ee_bulk.l6 + maize.l6 + crude_brent.l7 + soybeans.l7 + gold.l7 + silver.l7 + urea_ee_bulk.l7 + maize.l7 + crude_brent.l8 + soybeans.l8 + gold.l8 + silver.l8 + urea_ee_bulk.l8 + maize.l8 + crude_brent.l9 + soybeans.l9 + gold.l9 + silver.l9 + urea_ee_bulk.l9 + maize.l9 + ***** 
+## 
+##                   ******** Std. ***** t ***** Pr(&gt;|t|)    
+## crude_brent.l1   0.0087581  0.0129760   0.675 0.499931    
+## soybeans.l1      0.0030915  0.0025274   1.223 0.221659    
+## gold.**         -0.0018768  0.0021872  -0.858 0.391145    
+## silver.l1        1.3262082  0.0547991  24.201  &lt; 2e-16 ***
+## urea_ee_bulk.l1 -0.0038611  0.0015761  -2.450 0.014536 *  
+## maize.l1         0.0095134  0.0057485   1.655 0.098383 .  
+## crude_brent.l2   0.0150056  0.0211976   0.708 0.479244    
+## soybeans.l2     -0.0023608  0.0035129  -0.672 0.501765    
+## gold.l2          0.0031189  0.0035112   0.888 0.374694    
+## silver.l2       -0.6450581  0.0897075  -7.191 1.64e-12 ***
+## urea_ee_bulk.l2  0.0017838  0.0023799   0.750 0.453783    
+## maize.l2         0.0024026  0.0084530   0.284 0.776316    
+## crude_brent.l3  -0.0343976  0.0217114  -1.584 0.113569    
+## soybeans.l3     -0.0030580  0.0035020  -0.873 0.382841    
+## gold.l3          0.0014074  0.0036218   0.389 0.697695    
+## silver.l3        0.2081269  0.0960395   2.167 0.030559 *  
+## urea_ee_bulk.l3  0.0023514  0.0024482   0.960 0.337154    
+## maize.l3        -0.0008503  0.0085605  -0.099 0.920906    
+## crude_brent.l4   0.0255578  0.0215619   1.185 0.236288    
+## soybeans.l4      0.0036862  0.0035226   1.046 0.2957**    
+## gold.l4          0.0007228  0.0036056   0.200 0.841178    
+## silver.l4        0.0483405  0.0971462   0.498 0.618916    
+## urea_ee_bulk.l4 -0.0039559  0.0024558  -1.6** 0.107659    
+## maize.l4        -0.0266581  0.0086362  -3.087 0.002102 ** 
+## crude_brent.l5  -0.0311051  0.0216057  -1.440 0.150402    
+## soybeans.l5     -0.0018366  0.0035431  -0.518 0.604364    
+## gold.l5         -0.0008152  0.0036358  -0.224 0.822659    
+## silver.l5       -0.0409810  0.0977907  -0.419 0.675293    
+## urea_ee_bulk.l5  0.0053140  0.0024665   2.155 0.031535 *  
+## maize.l5         0.0248059  0.0087807   2.825 0.004860 ** 
+## crude_brent.l6   0.0098734  0.0216224   0.457 0.648077    
+## soybeans.l6     -0.0007827  0.0035507  -0.220 0.825605    
+## gold.l6          0.0032253  0.0035952   0.897 0.369969    
+## silver.l6       -0.1045799  0.0978186  -1.069 0.285378    
+## urea_ee_bulk.l6 -0.0091880  0.0024714  -3.718 0.000217 ***
+## maize.l6        -0.0068482  0.0087890  -0.779 0.436132    
+## crude_brent.l7   0.0466021  0.0217031   2.147 0.032*** *  
+## soybeans.l7      0.0047529  0.0035692   1.332 0.183401    
+## gold.l7         -0.0049168  0.0035308  -1.393 0.164192    
+## silver.l7        0.1373015  0.0966960   1.420 0.156067    
+## urea_ee_bulk.l7  0.00825**  0.0025096   3.288 0.001060 ** 
+## maize.l7         0.0044865  0.0087295   0.514 0.607451    
+## crude_brent.l8  -0.0161598  0.0213444  -0.757 0.449242    
+## soybeans.l8      0.0007250  0.0036561   0.198 0.842871    
+## gold.l8         -0.0040051  0.0034620  -1.157 0.247708    
+## silver.l8        0.0785298  0.0909341   0.864 0.388105    
+## urea_ee_bulk.l8 -0.0036709  0.0023957  -1.532 0.125890    
+## maize.l8        -0.0174454  0.0086570  -2.015 0.044262 *  
+## crude_brent.l9  -0.0189469  0.0133462  -1.420 0.156147    
+## soybeans.l9     -0.0019460  0.0026422  -0.736 0.461672    
+## gold.l9          0.0037176  0.0022454   1.656 0.098234 .  
+## silver.l9       -0.0717760  0.0556915  -1.289 0.197882    
+## urea_ee_bulk.l9  0.0017382  0.0015215   1.142 0.253652    
+## maize.l9         0.0078254  0.0058043   1.348 0.178020    
+## const            0.0018258  0.1583467   0.012 0.990804    
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.01 &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+## 
+## 
+## Residual standard error: 1.117 on 710 degrees ** freedom
+## Multiple R-Squared: 0.9832,  Adjusted R-squared: 0.9819 
+## F-statistic: 768.2 on 54 and 710 DF,  p-value: &lt; 2.2e-16 
+## 
+## 
+## Estimation results *** equation urea_ee_bulk: 
+## ============================================= 
+## urea_ee_**** = crude_brent.l1 + soybeans.l1 + gold.l1 + silver.l1 + urea_ee_bulk.l1 + maize.** + crude_brent.l2 + soybeans.l2 + gold.l2 + silver.l2 + urea_ee_bulk.l2 + maize.l2 + crude_brent.l3 + soybeans.l3 + gold.l3 + silver.l3 + urea_ee_bulk.l3 + maize.l3 + crude_brent.l4 + soybeans.l4 + gold.l4 + silver.l4 + urea_ee_bulk.l4 + maize.l4 + crude_brent.l5 + soybeans.l5 + gold.l5 + silver.l5 + urea_ee_bulk.l5 + maize.l5 + crude_brent.l6 + soybeans.l6 + gold.l6 + silver.l6 + urea_ee_bulk.l6 + maize.l6 + crude_brent.l7 + soybeans.l7 + gold.l7 + silver.l7 + urea_ee_bulk.l7 + maize.l7 + crude_brent.l8 + soybeans.l8 + gold.l8 + silver.l8 + urea_ee_bulk.l8 + maize.l8 + crude_brent.l9 + soybeans.l9 + gold.l9 + silver.l9 + urea_ee_bulk.l9 + maize.l9 + const 
+## 
+##                 Estimate Std. Error t ***** Pr(&gt;|t|)    
+## crude_brent.**   1.51581    0.30823   4.918 1.09e-06 ***
+## soybeans.l1      0.11897    0.06004   1.982 0.047899 *  
+## gold.l1          0.05807    0.05196   1.118 0.264107    
+## silver.l1       -4.73236    1.30170  -3.636 0.000297 ***
+## urea_ee_bulk.l1  1.11280    0.03744  29.723  &lt; 2e-16 ***
+## maize.l1         0.29011    0.13655   2.125 0.033967 *  
+## crude_brent.l2  -1.22314    0.50353  -2.429 0.015381 *  
+## soybeans.l2      0.03158    0.08344   0.378 0.705221    
+## gold.l2          0.01584    0.08341   0.190 0.849469    
+## silver.l2        6.90074    2.13091   3.238 0.001258 ** 
+## urea_ee_bulk.l2 -0.31686    0.05653  -5.605 2.98e-08 ***
+## maize.l2        -0.46116    0.20079  -2.297 0.021927 *  
+## crude_brent.l3   0.75563    0.51573   1.465 0.143320    
+## soybeans.l3     -0.20623    0.08319  -2.479 0.013404 *  
+## gold.l3         -0.16199    0.08603  -1.883 0.060124 .  
+## silver.l3       -2.43124    2.28132  -1.066 0.286915    
+## urea_ee_bulk.l3  0.13332    0.05816   2.293 0.022165 *  
+## maize.l3         0.25378    0.20335   1.248 0.212442    
+## crude_brent.l4  -1.29039    0.51218  -2.519 0.011974 *  
+## soybeans.l4     -0.03838    0.08368  -0.459 0.646612    
+## gold.l4          0.12018    0.08565   1.403 0.160983    
+## silver.l4       -0.52554    2.30761  -0.228 0.819914    
+## urea_ee_bulk.l4 -0.11216    0.05834  -1.923 0.054917 .  
+## maize.l4         0.07472    0.20514   0.364 0.715788    
+## crude_brent.l5   0.36777    0.51322   0.717 0.473861    
+## soybeans.l5      0.11869    0.08416   1.410 0.158918    
+## gold.l5         -0.03113    0.08636  -0.360 0.718613    
+## silver.l5        0.71875    2.32292   0.309 0.757095    
+## urea_ee_bulk.l5  0.17154    0.05859   2.928 0.003523 ** 
+## maize.l5        -0.21979    0.20858  -1.054 0.292344    
+## crude_brent.l6   0.62766    0.51362   1.222 0.222102    
+## soybeans.l6     -0.20386    0.08434  -2.417 0.015897 *  
+## gold.l6          0.11580    0.08540   1.356 0.175539    
+## silver.l6       -0.72471    2.32358  -0.312 0.755213    
+## urea_ee_bulk.l6 -0.23808    0.05870  -4.055 5.56e-05 ***
+## maize.l6         0.68303    0.20877   3.272 0.001121 ** 
+## crude_brent.l7  -0.31246    0.51553  -0.606 0.544643    
+## soybeans.l7      0.46634    0.08478   5.5** 5.29e-08 ***
+## gold.l7          0.04207    0.08387   0.502 0.616107    
+## silver.l7       -2.90309    2.29691  -1.264 0.206678    
+## urea_ee_bulk.l7  0.02788    0.05961   0.468 0.640147    
+## maize.l7        -0.82407    0.20736  -3.974 7.79e-05 ***
+## crude_brent.l8  -0.09769    0.50701  -0.193 0.847270    
+## soybeans.l8     -0.14837    0.08685  -1.708 0.087995 .  
+## gold.l8         -0.25756    0.08224  -3.132 0.001808 ** 
+## silver.l8        6.00258    2.16005   2.779 0.005598 ** 
+## urea_ee_bulk.l8  0.22943    0.05691   4.032 6.14e-05 ***
+## maize.l8         0.24967    0.20564   1.214 0.225113    
+## crude_brent.l9  -0.25522    0.31702  -0.805 0.421068    
+## soybeans.l9     -0.04696    0.06276  -0.748 0.454569    
+## gold.l9          0.10025    0.05334   1.880 0.060568 .  
+## silver.l9       -2.29800    1.32289  -1.737 0.082803 .  
+## urea_ee_bulk.l9 -0.13743    0.03614  -3.803 0.000155 ***
+## maize.l9        -0.07318    0.13787  -0.531 0.595732    
+## *****           -5.82236    3.76136  -1.548 0.122083    
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.** &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+## 
+## 
+## Residual standard error: 26.54 ** 710 ******* of freedom
+## ******** R-Squared: 0.9664,  ******** R-squared: 0.9638 
+## F-statistic: 378.1 on 54 *** 710 DF,  p-value: &lt; 2.2e-16 
+## 
+## 
+## ********** results *** equation maize: 
+## ====================================== 
+## ***** = crude_brent.l1 + soybeans.l1 + gold.l1 + silver.l1 + urea_ee_bulk.l1 + maize.l1 + crude_brent.l2 + soybeans.l2 + gold.l2 + silver.l2 + urea_ee_bulk.l2 + maize.l2 + crude_brent.l3 + soybeans.l3 + gold.l3 + silver.l3 + urea_ee_bulk.l3 + maize.l3 + crude_brent.l4 + soybeans.l4 + gold.l4 + silver.l4 + urea_ee_bulk.l4 + maize.l4 + crude_brent.l5 + soybeans.l5 + gold.l5 + silver.l5 + urea_ee_bulk.l5 + maize.l5 + crude_brent.l6 + soybeans.l6 + gold.l6 + silver.l6 + urea_ee_bulk.l6 + maize.l6 + crude_brent.l7 + soybeans.l7 + gold.l7 + silver.l7 + urea_ee_bulk.l7 + maize.l7 + crude_brent.l8 + soybeans.l8 + gold.l8 + silver.l8 + urea_ee_bulk.l8 + maize.l8 + crude_brent.l9 + soybeans.l9 + gold.l9 + silver.l9 + urea_ee_bulk.l9 + maize.l9 + ***** 
+## 
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## crude_brent.**  -0.065237   0.096601  -0.675 0.499693    
+## soybeans.l1      0.039847   0.018815   2.118 0.034540 *  
+## gold.l1         -0.029278   0.016283  -1.798 0.072589 .  
+## silver.l1        0.707882   0.407957   1.735 0.083141 .  
+## urea_ee_bulk.l1  0.040991   0.011734   3.493 0.000506 ***
+## maize.l1         1.146894   0.042795  26.799  &lt; 2e-16 ***
+## crude_brent.l2   0.002775   0.157807   0.018 0.985975    
+## soybeans.l2     -0.001653   0.026152  -0.063 0.949627    
+## gold.l2         -0.004293   0.026140  -0.164 0.869601    
+## silver.l2        0.645022   0.667835   0.966 0.334453    
+## urea_ee_bulk.l2 -0.046036   0.017717  -2.598 0.009561 ** 
+## maize.l2        -0.306237   0.062929  -4.866 1.40e-06 ***
+## crude_brent.l3  -0.049125   0.161633  -0.304 0.761272    
+## soybeans.l3     -0.022156   0.026071  -0.850 0.395704    
+## gold.l3          0.056437   0.026962   2.093 0.036689 *  
+## silver.l3       -2.030450   0.714974  -2.840 0.004642 ** 
+## urea_ee_bulk.l3  0.039360   0.018226   2.160 0.031141 *  
+## maize.l3         0.143489   0.063729   2.252 0.024656 *  
+## crude_brent.l4   0.135182   0.160520   0.842 0.399985    
+## soybeans.l4      0.026872   0.026224   1.025 0.305858    
+## gold.l4         -0.045411   0.026842  -1.692 0.091124 .  
+## silver.l4        1.893962   0.723213   2.619 0.009012 ** 
+## urea_ee_bulk.l4 -0.031235   0.018283  -1.708 0.087986 .  
+## maize.l4        -0.138076   0.064293  -2.148 0.032083 *  
+## crude_brent.l5  -0.062358   0.160846  -0.388 0.698364    
+## soybeans.l5     -0.037317   0.026377  -1.415 0.157573    
+## gold.l5          0.042275   0.027067   1.562 0.118764    
+## silver.l5       -1.044368   0.728011  -1.435 0.151856    
+## urea_ee_bulk.l5  0.023884   0.018362   1.301 0.193772    
+## maize.l5         0.012961   0.065369   0.198 0.842884    
+## crude_brent.l6  -0.113122   0.160970  -0.703 0.482440    
+## soybeans.l6      0.029640   0.026434   1.121 0.262536    
+## gold.l6          0.021069   0.026765   0.787 0.431441    
+## silver.l6        0.332590   0.728219   0.457 0.648014    
+## urea_ee_bulk.l6 -0.006278   0.018398  -0.341 0.733050    
+## maize.l6        -0.029163   0.065430  -0.446 0.655945    
+## crude_brent.l7   0.064457   0.161571   0.399 0.690055    
+## soybeans.l7      0.004319   0.026571   0.163 0.870927    
+## gold.l7         -0.094883   0.026285  -3.610 0.000328 ***
+## silver.l7        0.379421   0.719862   0.527 0.598306    
+## urea_ee_bulk.l7  0.014940   0.018683   0.800 0.424173    
+## maize.l7         0.065402   0.064987   1.006 0.314576    
+## crude_brent.l8   0.195204   0.158900   1.228 0.219677    
+## soybeans.l8     -0.024620   0.027218  -0.905 0.366007    
+## gold.l8          0.084659   0.025773   3.285 0.001071 ** 
+## silver.l8       -0.750627   0.676967  -1.109 0.267888    
+## urea_ee_bulk.l8 -0.030995   0.017835  -1.738 0.082661 .  
+## maize.l8        -0.041789   0.064448  -0.648 0.516920    
+## crude_brent.l9  -0.147823   0.099357  -1.488 0.137246    
+## soybeans.l9     -0.009833   0.019670  -0.5** 0.617293    
+## gold.l9         -0.029322   0.016716  -1.754 0.079845 .  
+## silver.l9        0.298032   0.414600   0.719 0.472475    
+## urea_ee_bulk.l9  0.020249   0.011327   1.788 0.074243 .  
+## maize.l9         0.038858   0.0432**   0.899 0.368808    
+## const            4.761455   1.178826   4.039 5.95e-05 ***
+## ---
+## Signif. codes:  0 &apos;***&apos; 0.001 &apos;**&apos; 0.** &apos;*&apos; 0.05 &apos;.&apos; 0.1 &apos; &apos; 1
+## 
+## 
+## Residual ******** error: 8.319 on 7** degrees of freedom
+## ******** R-Squared: 0.9851,  ******** R-squared: 0.984 
+## F-statistic: 868.9 on 54 and 7** DF,  p-value: &lt; 2.2e-16 
+## 
+## 
+## 
+## ********** ****** ** residuals:
+##              crude_brent ********    gold  silver urea_ee_bulk  maize
+## crude_brent      11.6236   16.098   7.374  0.7018       13.271  6.703
+## soybeans         16.0979  359.740  43.840  2.3557       23.204 74.503
+## gold              7.3736   43.840 760.620 22.0833       40.601 20.074
+## silver            0.7018    2.356  22.083  1.2486        1.111  1.196
+## urea_ee_bulk     13.2706   23.204  40.601  1.1105      704.548  7.822
+## *****             6.7025   74.503  20.074  1.1960        7.822 69.202
+## 
+## *********** matrix of residuals:
+##              crude_brent soybeans    gold  silver urea_ee_bulk   maize
+## crude_*****      1.00000  0.24895 0.07842 0.18422      0.14664 0.23632
+## ********         0.24895  1.00000 0.08381 0.11115      0.04609 0.47219
+## gold             0.07842  0.08381 1.00000 0.71657      0.05546 0.08750
+## silver           0.18422  0.11115 0.71657 1.*****      0.03744 0.12867
+## urea_ee_bulk     0.14664  0.04609 0.05546 0.03744      1.00000 0.03543
+## maize            0.23632  0.47219 0.08750 0.12867      0.03543 1.00000</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">  <em><span style="color: rgb(153, 153, 136);"># Granger ********* test</span></em>
+  causality_results &lt;- causality(var_model)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## Warning in causality(var_model): 
+## Argument &apos;cause&apos; has not been specified;
+## using ***** variable in &apos;x$y&apos; (crude_brent) as cause variable.</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">  print(causality_results)</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## $Granger
+## 
+##  Granger ********* H0: crude_***** do not Granger-cause soybeans gold
+##  silver urea_ee_bulk maize
+## 
+## data:  *** object var_model
+## F-Test = 2.0256, df1 = 45, df2 = 4260, p-***** = 6.539e-05
+## 
+## 
+## $Instant
+## 
+##  H0: No ************* causality between: crude_brent and soybeans gold
+##  silver urea_ee_bulk maize
+## 
+## data:  VAR object var_model
+## Chi-squared = 84.93, df = 5, p-value &lt; 2.2e-16</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">  <em><span style="color: rgb(153, 153, 136);"># Forecasting using *** VAR model</span></em>
+  forecast &lt;- predict(var_model, n.***** = <span style="color: rgb(0, 153, 153);">24</span>)
+  
+  <em><span style="color: rgb(153, 153, 136);"># Plotting the forecast</span></em>
+  par(*** = c(<span style="color: rgb(0, 153, 153);">4</span>, <span style="color: rgb(0, 153, 153);">4</span>, <span style="color: rgb(0, 153, 153);">2</span>, <span style="color: rgb(0, 153, 153);">2</span>))  <em><span style="color: rgb(153, 153, 136);"># ****** margins: c(bottom, left, top, right)</span></em>
+  plot(forecast)</code></pre>
+<p style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(255, 255, 255);font-size: 14px;"><img src="data:image/png;base64,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" width="672" style="border: 0px;" height="480"></p>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: rgb(245, 245, 245);font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">forecast</code></pre>
+<pre style="text-align: start;color: rgb(51, 51, 51);background-color: white;font-size: 13px;border: 1px solid rgb(204, 204, 204);"><code style="color: inherit;font-size: inherit;">## $crude_brent
+##            fcst    *****     *****        CI
+##  [1,]  85.86493 79.18275  92.54712  6.682185
+##  [2,]  90.35819 79.31912 101.39725 11.039063
+##  [3,]  95.45842 81.10789 109.80895 14.350530
+##  [4,]  96.23451 79.39084 113.07818 16.843670
+##  [5,]  95.06585 76.24166 113.89003 18.824187
+##  [6,]  94.42873 73.72443 115.13303 20.704302
+##  [7,]  95.62449 73.41202 117.83696 22.212470
+##  [8,]  98.01621 74.47215 121.56027 23.544060
+##  [9,]  98.67752 74.01723 123.33782 24.660297
+## [10,]  98.38064 72.70019 124.06108 25.680446
+## [11,]  98.73001 72.06863 125.39138 26.661374
+## [12,] 100.52841 72.91285 128.14397 27.615561
+## [13,] 102.24316 73.75554 130.73078 28.487620
+## [14,] 102.47911 73.21537 131.74285 29.263743
+## [15,] 102.84729 72.87720 132.81737 29.970087
+## [16,] 103.92392 73.29923 134.54861 30.624692
+## [17,] 104.91964 73.70471 136.13457 31.214928
+## [18,] 105.54447 73.79774 137.29121 31.746737
+## [19,] 106.24782 73.99253 138.503** 32.255292
+## [20,] 107.41516 74.66645 140.16387 32.748708
+## [21,] 108.58278 75.35826 141.80730 33.224517
+## [22,] 109.53675 75.86335 143.21015 33.673402
+## [23,] 110.42988 76.32330 144.53646 34.106580
+## [24,] 111.40723 76.87986 145.93460 34.527368
+## 
+## $soybeans
+##           fcst    *****    upper        CI
+##  [1,] 498.2417 461.0674 535.4160  37.17428
+##  [2,] 507.3967 451.8477 562.9457  55.54902
+##  [3,] 519.6790 449.6332 589.7248  70.04581
+##  [4,] 534.8059 453.7365 615.8753  81.06938
+##  [5,] 553.7*** 464.2800 643.1203  89.42013
+##  [6,] 571.0943 475.0091 667.1796  96.08524
+##  [7,] 579.8832 478.5124 681.2540 101.37080
+##  [8,] 590.0036 483.8524 696.1549 106.15122
+##  [9,] 592.6321 482.7083 702.5558 109.92378
+## [10,] 595.3168 482.0569 708.5767 113.25992
+## [11,] 603.3063 487.0122 719.6003 116.29405
+## [12,] 611.6743 492.6269 730.7218 119.04745
+## [13,] 620.4292 498.9936 741.8648 121.43561
+## [14,] 626.0867 502.3434 749.8299 123.74328
+## [15,] 631.3276 505.4568 757.1983 125.87078
+## [16,] 638.4324 510.4567 766.4081 127.97572
+## [17,] 646.4935 516.4828 776.5042 130.01070
+## [18,] 653.7401 521.8031 785.6770 131.93692
+## [19,] 659.5433 525.7295 793.3572 133.81385
+## [20,] 665.5560 529.9592 801.1528 135.59682
+## [21,] 671.9145 534.5558 809.2733 137.35872
+## [22,] 678.2262 539.1723 817.2801 139.05390
+## [23,] 683.8392 543.1342 824.5442 140.70497
+## [24,] 689.0463 546.7509 831.3417 142.29542
+## 
+## $gold
+##           fcst    lower    *****        CI
+##  [1,] 2323.308 2269.253 2377.362  54.05452
+##  [2,] 2350.401 2263.264 2437.538  87.13714
+##  [3,] 2384.681 2275.689 2493.673 108.99192
+##  [4,] 2396.957 2270.177 2523.737 126.77980
+##  [5,] 2402.054 2258.939 2545.169 143.11499
+##  [6,] 2389.779 2228.979 2550.578 160.79933
+##  [7,] 2395.731 2218.992 2572.471 176.73917
+##  [8,] 2424.442 2233.365 2615.519 191.07691
+##  [9,] 2447.384 2244.543 2650.226 202.84125
+## [10,] 2455.413 2241.715 2669.110 213.69727
+## [11,] 2460.550 2236.914 2684.185 223.63542
+## [12,] 2478.292 2245.039 2711.544 233.25237
+## [13,] 2497.841 2255.352 2740.331 242.48919
+## [14,] 2508.024 2257.245 2758.803 250.77878
+## [15,] 2514.687 2256.070 2773.305 258.61745
+## [16,] 2526.802 2260.376 2793.228 266.42625
+## [17,] 2541.000 2266.763 2815.238 274.23732
+## [18,] 2551.275 2269.459 2833.091 281.81618
+## [19,] 2561.210 2272.117 2850.303 289.09290
+## [20,] 2573.770 2277.522 2870.018 296.24809
+## [21,] 2586.655 2283.382 2889.928 303.27301
+## [22,] 2597.809 2287.806 2907.812 310.00300
+## [23,] 2608.489 2291.966 2925.012 316.52297
+## [24,] 2620.356 2297.451 2943.260 322.90488
+## 
+## $silver
+##           fcst    *****    *****       CI
+##  [1,] 29.46233 27.27221 31.65244 2.190117
+##  [2,] 29.92001 26.29724 33.54278 3.622769
+##  [3,] 31.20950 26.74762 35.67138 4.461877
+##  [4,] 32.37999 27.38707 37.37290 4.992915
+##  [5,] 32.47471 27.05704 37.89237 5.417661
+##  [6,] 31.22041 25.39814 37.04269 5.822273
+##  [7,] 30.70187 24.53904 36.86470 6.162828
+##  [8,] 31.48495 25.00182 37.96808 6.483132
+##  [9,] 32.17170 25.40184 38.94155 6.769859
+## [10,] 32.15294 25.10402 39.20187 7.048926
+## [11,] 32.08767 24.78594 39.38940 7.301731
+## [12,] 32.56131 25.01907 40.10354 7.542234
+## [13,] 33.04596 25.28020 40.81172 7.765756
+## [14,] 33.05882 25.09972 41.01793 7.959108
+## [15,] 32.95801 24.83835 41.07767 8.119657
+## [16,] 33.10354 24.84177 41.36530 8.261764
+## [17,] 33.26281 24.87*** 41.65561 8.392808
+## [18,] 33.22731 24.71505 41.73957 8.512258
+## [19,] 33.22960 24.60557 41.85362 8.624027
+## [20,] 33.42593 24.69405 42.15781 8.731883
+## [21,] 33.63221 24.79761 42.46680 8.834591
+## [22,] 33.72982 24.80125 42.65838 8.928565
+## [23,] 33.82050 24.80426 42.83674 9.016241
+## [24,] 33.97737 24.87811 43.07663 9.099259
+## 
+## $urea_ee_bulk
+##           fcst    lower    upper        CI
+##  [1,] 350.9098 298.8859 402.9338  52.02397
+##  [2,] 347.9520 267.4752 428.4288  80.47680
+##  [3,] 382.0725 283.5809 480.5640  98.49154
+##  [4,] 431.9383 319.2103 544.6663 112.72800
+##  [5,] 446.4399 324.3153 568.5645 122.12460
+##  [6,] 423.1201 293.2164 553.0237 129.90367
+##  [7,] 406.0215 269.7373 542.3056 136.28414
+##  [8,] 421.0573 279.0641 563.0506 141.99329
+##  [9,] 445.3184 297.1293 593.5076 148.18914
+## [10,] 446.6018 292.3332 600.8705 154.26864
+## [11,] 440.8110 280.7875 600.8344 160.02344
+## [12,] 450.9617 285.6216 616.3018 165.34010
+## [13,] 468.0322 298.1636 637.9008 169.86859
+## [14,] 479.5693 306.1377 653.0009 173.43162
+## [15,] 481.6695 305.3285 658.0104 176.34093
+## [16,] 480.6086 301.9045 659.3128 178.70416
+## [17,] 482.9276 302.1278 663.7273 180.79975
+## [18,] 487.0313 304.4258 669.6367 182.60543
+## [19,] 490.6278 306.4521 674.8035 184.17569
+## [20,] 493.13** 307.5390 678.72** 185.59109
+## [21,] 496.1775 309.3361 683.0189 186.84141
+## [22,] 500.9837 313.0120 688.9554 187.97170
+## [23,] 505.9121 316.9278 694.8965 188.98437
+## [24,] 509.5409 319.6458 699.4359 189.89506
+## 
+## $maize
+##           fcst    lower    *****       CI
+##  [1,] 199.8869 183.5823 216.1914 16.30452
+##  [2,] 206.9893 181.4786 232.4999 25.51067
+##  [3,] 222.1968 190.1895 254.2040 32.00728
+##  [4,] 229.4706 192.0102 266.9309 37.46035
+##  [5,] 234.9412 192.8716 277.0108 42.06960
+##  [6,] 247.5919 202.0077 293.1761 45.58421
+##  [7,] 255.6395 207.0894 304.1897 48.55015
+##  [8,] 260.2051 208.9170 311.4932 51.28808
+##  [9,] 264.9524 211.3313 318.5734 53.62105
+## [10,] 270.5851 214.8403 326.3300 55.74483
+## [11,] 274.9739 217.3397 332.6080 57.63414
+## [12,] 276.9388 217.5590 336.3186 59.37982
+## [13,] 280.2440 219.2996 341.1884 60.94440
+## [14,] 284.2996 221.7594 346.8398 62.54017
+## [15,] 287.8247 223.8257 351.8237 63.99899
+## [16,] 290.5893 225.2147 355.9639 65.37459
+## [17,] 293.2190 226.5699 359.8682 66.64916
+## [18,] 296.2952 228.4549 364.1356 67.84036
+## [19,] 298.9662 230.0122 367.92** 68.95395
+## [20,] 301.3268 231.3549 371.2987 69.97192
+## [21,] 303.6321 232.7049 374.5594 70.92724
+## [22,] 305.7398 233.9169 377.5626 71.82281
+## [23,] 307.6239 234.9531 380.2948 72.67086
+## [24,] 309.5690 236.0999 383.0380 73.46903</code></pre>
+<div style="color: red">Word to HTML trial - please <a href="https://wordtohtml.net/site/payment">Go PRO</a> to get whole HTML.</div>
